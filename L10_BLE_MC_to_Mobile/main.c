@@ -24,7 +24,7 @@ int main(void)
     UARTClockSourceSet(UART1_BASE, UART_CLOCK_PIOSC);
     UARTStdioConfig(1, 9600, 16000000);
 
-    char text[]="Welcome\n To \n PDA \n Engineering College\nGulbarga\n";
+    char text[]="Welcome to UART Communication Protocol\n";
     len=strlen(text);
     for(x=0; x<len; x++)
     {
