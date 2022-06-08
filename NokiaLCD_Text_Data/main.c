@@ -1,3 +1,16 @@
+/*  Connection of Nokia LCD display
+
+   LED       ==> PC2
+   SCLK      ==> PD0
+   DN-(MOSI) ==> PD3
+   D/C       ==> PC6
+   RST       ==> PC4
+   SCE       ==> PC5
+   GND       ==> GND
+   VCC       ==> +3.3V
+
+*/
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "driverlib/sysctl.h"
