@@ -1,6 +1,6 @@
 /*  Connection of Nokia LCD display
 
-   LED       ==> PC2
+   LED       ==> PC7
    SCLK      ==> PD0
    DN-(MOSI) ==> PD3
    D/C       ==> PC6
