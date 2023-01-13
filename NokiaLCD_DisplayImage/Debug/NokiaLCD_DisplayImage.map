@@ -1,0 +1,264 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.3                    
+******************************************************************************
+>> Linked Mon Jan  9 11:55:18 2023
+
+OUTPUT FILE NAME:   <NokiaLCD_DisplayImage.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001549
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00001662  0003e99e  R  X
+  SRAM                  20000000   00008000  0000021c  00007de4  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001668   00001668    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000aa0   00000aa0    r-- .const
+  00000d0c    00000d0c    0000093e   0000093e    r-x .text
+  00001650    00001650    00000018   00000018    r-- .cinit
+20000000    20000000    0000021c   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000001c   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.const     0    0000026c    00000aa0     
+                  0000026c    00000780     Nokia_Driver.obj (.const:ASCII)
+                  000009ec    00000210     main.obj (.const:.string:text)
+                  00000bfc    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00000c8c    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00000cf8    00000014     Nokia_Driver.obj (.const:$P$T0$1)
+
+.text      0    00000d0c    0000093e     
+                  00000d0c    000001c4     Nokia_Driver.obj (.text)
+                  00000ed0    0000016c     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  0000103c    00000118                   : sysctl.obj (.text:SysCtlClockGet)
+                  00001154    000000fc     main.obj (.text)
+                  00001250    000000f4     driverlib.lib : sysctl.obj (.text:SysCtlClockSet)
+                  00001344    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  000013e0    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001448    0000004c     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00001494    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000014d8    0000003c     driverlib.lib : ssi.obj (.text:SSIConfigSetExpClk)
+                  00001514    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00001548    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  0000157c    0000002c     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000015a8    0000001a                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  000015c2    00000016                   : gpio.obj (.text:GPIOPinTypeGPIOInput)
+                  000015d8    00000016                   : gpio.obj (.text:GPIOPinTypeSSI)
+                  000015ee    00000012                   : ssi.obj (.text:SSIDataGetNonBlocking)
+                  00001600    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000160e    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  0000161a    0000000a     driverlib.lib : ssi.obj (.text:SSIDataPut)
+                  00001624    0000000a                   : ssi.obj (.text:SSIEnable)
+                  0000162e    00000008                   : ssi.obj (.text:SSIBusy)
+                  00001636    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  0000163c    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00001642    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001646    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00001650    00000018     
+                  00001650    00000008     (.cinit..data.load) [load image, compression = lzss]
+                  00001658    00000008     (__TI_handler_table)
+                  00001660    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000200    0000001c     UNINITIALIZED
+                  20000200    00000018     main.obj (.data:RX_text)
+                  20000218    00000004     Nokia_Driver.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       Nokia_Driver.obj               452    1940      4      
+       main.obj                       252    528       24     
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         716    3088      28     
+                                                              
+    ../driverlib.lib
+       gpio.obj                       560    144       0      
+       sysctl.obj                     582    108       0      
+       ssi.obj                        106    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1248   252       0      
+                                                              
+    C:\ti\ccs920\ccs\tools\compiler\ti-cgt-arm_18.12.3.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         402    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      24        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   2366   3364      540    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001660 records: 1, size/record: 8, table size: 8
+	.data: load addr=00001650, load size=00000008 bytes, run addr=20000200, run size=0000001c bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001658 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001647  C$$EXIT                       
+0000157d  GPIODirModeSet                
+00000ed1  GPIOPadConfigSet              
+00001449  GPIOPinConfigure              
+000015c3  GPIOPinTypeGPIOInput          
+000015a9  GPIOPinTypeGPIOOutput         
+000015d9  GPIOPinTypeSSI                
+00001637  GPIOPinWrite                  
+00000d61  LcdCharacter                  
+00000dc3  LcdClear                      
+00000da7  LcdString                     
+00000df5  Position                      
+20000200  RX_text                       
+0000160f  ResetISR                      
+00000e77  Reset_Init                    
+00000d0d  SPI_Init                      
+0000162f  SSIBusy                       
+000014d9  SSIConfigSetExpClk            
+000015ef  SSIDataGetNonBlocking         
+0000161b  SSIDataPut                    
+00001625  SSIEnable                     
+00000e51  Switch_LED_Init               
+0000103d  SysCtlClockGet                
+00001251  SysCtlClockSet                
+0000163d  SysCtlDelay                   
+00001515  SysCtlPeripheralEnable        
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00001660  __TI_CINIT_Base               
+00001668  __TI_CINIT_Limit              
+00001658  __TI_Handler_Table_Base       
+00001660  __TI_Handler_Table_Limit      
+00001495  __TI_auto_init_nobinit_nopinit
+000013e1  __TI_decompress_lzss          
+00001601  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001345  __aeabi_memcpy                
+00001345  __aeabi_memcpy4               
+00001345  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+00001549  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001643  _system_pre_init              
+00001647  abort                         
+ffffffff  binit                         
+00000000  g_pfnVectors                  
+20000218  index                         
+00001155  main                          
+00001345  memcpy                        
+000009ec  text                          
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+000009ec  text                          
+00000d0d  SPI_Init                      
+00000d61  LcdCharacter                  
+00000da7  LcdString                     
+00000dc3  LcdClear                      
+00000df5  Position                      
+00000e51  Switch_LED_Init               
+00000e77  Reset_Init                    
+00000ed1  GPIOPadConfigSet              
+0000103d  SysCtlClockGet                
+00001155  main                          
+00001251  SysCtlClockSet                
+00001345  __aeabi_memcpy                
+00001345  __aeabi_memcpy4               
+00001345  __aeabi_memcpy8               
+00001345  memcpy                        
+000013e1  __TI_decompress_lzss          
+00001449  GPIOPinConfigure              
+00001495  __TI_auto_init_nobinit_nopinit
+000014d9  SSIConfigSetExpClk            
+00001515  SysCtlPeripheralEnable        
+00001549  _c_int00_noargs               
+0000157d  GPIODirModeSet                
+000015a9  GPIOPinTypeGPIOOutput         
+000015c3  GPIOPinTypeGPIOInput          
+000015d9  GPIOPinTypeSSI                
+000015ef  SSIDataGetNonBlocking         
+00001601  __TI_decompress_none          
+0000160f  ResetISR                      
+0000161b  SSIDataPut                    
+00001625  SSIEnable                     
+0000162f  SSIBusy                       
+00001637  GPIOPinWrite                  
+0000163d  SysCtlDelay                   
+00001643  _system_pre_init              
+00001647  C$$EXIT                       
+00001647  abort                         
+00001658  __TI_Handler_Table_Base       
+00001660  __TI_CINIT_Base               
+00001660  __TI_Handler_Table_Limit      
+00001668  __TI_CINIT_Limit              
+20000000  __stack                       
+20000200  RX_text                       
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000218  index                         
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[57 symbols]
